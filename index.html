@@ -28,6 +28,12 @@
 
     <!-- Required Modernizr file -->
   <script src="modernizr.custom.js"></script>
+  
+  <style>
+    .on-slide-show-issues .example-code {
+      color: #d00;
+    }
+  </style>
 </head>
 <body>
   <div class="deck-container">
@@ -84,7 +90,7 @@
 
     <section class="slide">
       <h2>Examples of color blindness</h2>
-      
+      <p>About 8% of all males are colorblind (<a href="http://wearecolorblind.com/article/a-quick-introduction-to-color-blindness/">source</a>)</p>
       <div class="slide">
         <h3>Normal Vision</h3>
         <img src="images/vision/vision%20-%20normal.png" />
@@ -106,7 +112,7 @@
       </div>
 
       <div class="slide">
-        <h3>Achromatopsia</h3>
+        <h3>Achromatopsia <span>1 in 33,000 <!-- https://www.counsyl.com/services/family-prep-screen/diseases/achromatopsia/ --></span></h3>
         <img src="images/vision/vision%20-%20achromatopsia.png" />
       </div>
     </section>
@@ -116,11 +122,13 @@
 
       <div class="slide">
         <h3>Cataract</h3>
+        <p>By age 80, 60% of all Americans have Cataracts (<a href="https://nei.nih.gov/eyedata/cataract">source</a>)</p>
         <img src="images/vision/vision%20-%20Cataract.png" />
       </div>
 
       <div class="slide">
-        <h3>Muscular degeneration</h3>
+        <h3>Macular degeneration</h3>
+        <p>Most common: age related. 1.75 million individuals in the United States(<a href="https://nei.nih.gov/eyedata/pbd4">source</a>)</p>
         <img src="images/vision/vision%20-%20Macular%20degeneration.png" />
       </div>
     </section>
@@ -132,20 +140,219 @@
         <li>Don't rely on color - use shapes and text</li>
         <li>Ensure text contrast with the background is at least 4.5:1 (WCAG 2.0 AA)</li>
         <li>Provide text alternatives for everything that is important</li>
+        <li>
+          Make sure all form inputs have labels
+          <pre><code>&lt;label&gt;
+  Your first name
+  &lt;input type=&quot;text&quot; name=&quot;firstname&quot; tabindex=&quot;5&quot; /&gt;
+&lt;/label&gt;</code></pre>
+        </li>
       </ul>
     </section>
 
 
     <section class="slide">
-      <h2>Vision Assitve Technology</h2>
+      <h2>Vision Assistive Technology</h2>
 
       <ul>
-        <li>Zoom</li>
+        <li>Glasses or Contacts</li>
+        <li>Magnification</li>
         <li>Screen reader</li>
-        <li>Brail device</li>
       </ul>
     </section>
-      <!-- End slides. -->
+
+    <section class="slide">
+      <h2>So, how does a screen reader work?</h2>
+
+      <ul>
+        <li class="slide">There are a lot of screen readers. VoiceOver, Jaws and NVDA to name a few.</li>
+        <li class="slide">Common misconception: they are their own browser. NOT TRUE</li>
+        <li class="slide">Note: if you need to use a screen reader, you probably can't use a mouse.</li>
+      </ul>
+      
+      <div class="slide">
+        <p>A screen reader demo by Laura Palmaro (Google), check out the entire video "Quality, Equality, and Accessibility"</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_ey8cjuDZW8?start=483&end=511" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Hearing Loss</h2>
+
+      <ul>
+        <li class="slide">Ranges from partial to full</li>
+        <li class="slide">About 15% of Americal adults (37.5 million people) have trouble hearing (<a href="https://www.nidcd.nih.gov/health/statistics/quick-statistics-hearing">source</a>)</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Mobility</h2>
+
+      <ul>
+        <li class="slide">Can range from partial to full (paralyzed)</li>
+        <li class="slide">Ability to use hands affects the web the most</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Mobility Pro-tips</h2>
+
+      <ul>
+        <li class="slide">Make sure that your website can be used without a mouse (keyboard only)</li>
+        <li class="slide">Skip Nav</li>
+        <li class="slide">
+          Logical Tab order
+          <div class="slide">
+            Avoid this:
+            <pre><code>&lt;input name=&quot;outoforder&quot; tabindex=&quot;5&quot; /&gt;</code></pre>
+          </div>
+        </li>
+        <li class="slide">Avoid keyboard traps</li>
+        <li class="slide">
+          Make sure current focus is visually shown
+          <div class="slide">
+            Avoid this css:
+            <pre><code>:focus { outline: 0; }</code></pre>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>The Effects Aging</h2>
+      <p>Aging affects nearly 100% of the population, including you at some point.</p>
+      <ul>
+        <li class="slide">Pretty much everything that I just covered can be caused by aging.</li>
+        <li class="slide">However, a lot can simply be temporary (broken arm).</li>
+      </ul>
+    </section>
+
+
+    <section class="slide">
+      <h2>Standards - WCAG</h2>
+      <p>Web Content Accessibility Guidelines (WCAG) 2.0 is the most widely used standard. Use it. Don't make your own.</p>
+      <h3>P-O-U-R</h3>
+      <ul>
+        <li class="slide"><strong>P</strong>erceivable - Information and user interface components must be presentable to users in ways they can perceive. (it can't be invisible to all of their senses)</li>
+        <li class="slide"><strong>O</strong>perable - User interface components and navigation must be operable. (the interface cannot require interaction that a user cannot perform)</li>
+        <li class="slide"><strong>U</strong>nderstandable -  Information and the operation of user interface must be understandable. (the content or operation cannot be beyond their understanding)</li>
+        <li class="slide"><strong>R</strong>obust - Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies (as technologies and user agents evolve, the content should remain accessible)</li>
+      </ul>
+      <p><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html">Source</a></p>
+    </section>
+
+    <section class="slide">
+      <h2>ARIA</h2>
+      <p>Accessible Rich Internet Applications (ARIA) aims to make complex interactions accessible.</p>
+
+      <ul>
+        <li class="slide"><code>aria-hidden="true"</code> - content is hidden from AT</li>
+        <li class="slide"><code>aria-live="polite"</code> - announce content changes to AT as they happen</li>
+        <li class="slide"><code>role="button"</code> - Make a {span} a button and accessible to AT</li>
+      </ul>
+      <p><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html">Source</a></p>
+    </section>
+
+    <section class="slide">
+      <h2>How to test your code</h2>
+      <ul>
+        <li class="slide">
+          Automated tools
+          <ul>
+            <li class="slide">HTML_Codesniffer (free)</li>
+            <li class="slide">pa11y (free)</li>
+            <li class="slide">Tenon.io (paid)</li>
+            <li class="slide">AXE, by Deque (free)</li>
+            <li class="slide">LOTS MORE</li>
+          </ul>
+        </li>
+        <li class="slide">
+          Manual testing
+          <ul>
+            <li class="slide">Screen Readers (VO)</li>
+            <li class="slide">Only a keyboard</li>
+          </ul>
+        </li>
+        <li class="slide">You need to do both! Automated can only catch ~40% of problems</li>
+        <li class="slide">TEST OFTEN</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Code Example</h2>
+      <p>How can this be improved?</p>
+      <pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+
+    &lt;title&gt;a11y issues&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;<span class="example-code">header</span>&quot;&gt;
+        <span class="example-code">&lt;img src=&quot;banner-image&quot; /&gt;</span>
+        <span class="example-code">&lt;div class=&quot;nav&quot;&gt;</span>
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot;&gt;link 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot;&gt;link 2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot;&gt;link 3&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;<span class="example-code">main</span>&quot;&gt;
+        &lt;div class=&quot;hero&quot;&gt;
+            &lt;!-- A hero is a full-width &apos;band&apos;, with an attention grabbing picture, text and call to action --&gt;
+            &lt;img src=&quot;hero.jpg&quot; <span class="example-code">alt=&quot;hero.jpg&quot;</span> /&gt;
+            <span class="example-code">&lt;a href=&quot;http://twitter.com/follow-me&quot; class=&quot;icon-font-twitter&quot;&gt;&lt;/a&gt;</span>
+        &lt;/div&gt;
+        &lt;form&gt;
+            <span class="example-code">What is your name?</span>
+            &lt;br/&gt;
+            &lt;input type=&quot;text&quot; name=&quot;full-name&quot; /&gt;
+            &lt;br/&gt;
+            <span class="example-code">&lt;img src=&quot;submit&quot; onclick=&quot;$(this).closest(&apos;form&apos;).submit();&quot;&gt;</span>
+        &lt;/form&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;<span class="example-code">footer</span>&quot;&gt;
+        This is footer stuff
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      
+      <ul>
+        <li class="slide" id="show-issues">Lots of problems</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Landmarks</h2>
+    </section>
+
+    <section class="slide">
+      <h2>alt text</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Text in images (hero, header)</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Link text - fonticons</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Don't misuse elements (submit button)</h2>
+    </section>
+
+    <section class="slide">
+      <h2>How to learn more</h2>
+      <ul>
+        <li><a hre="http://a11yproject.com/">http://a11yproject.com/</a></li>
+        <li>Follow me on twitter: @mfairchild365</li>
+      </ul>
+    </section>
+
+    <!-- End slides. -->
 
       <!-- Begin extension snippets. Add or remove as needed. -->
 
