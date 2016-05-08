@@ -30,7 +30,7 @@
   <script src="modernizr.custom.js"></script>
   
   <style>
-    .on-slide-show-issues .example-code {
+    .on-slide-show-issues .example-code, .aria-exmaple-good {
       color: #d00;
     }
   </style>
@@ -254,6 +254,77 @@
     </section>
 
     <section class="slide">
+      <h2>ARIA Example - Tabs - without ARIA</h2>
+
+      <ul>
+        <li>Which tab is currently selected?</li>
+        <li>What are the boundaries of the tab panels?</li>
+        <li>What happens when a tab link is clicked (how do I know something changed?)</li>
+      </ul>
+
+      <pre><code>&lt;ul class=&quot;tabs&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#tab1&quot;&gt;Tab #1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#tab2&quot;&gt;Tab #2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#tab3&quot;&gt;Tab #3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#tab4&quot;&gt;Tab #4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;tabs-content&quot;&gt;
+    &lt;div id=&quot;tab1&quot;&gt;
+        &lt;h2&gt;Tab 1&lt;/h2&gt;
+        &lt;!-- contents --&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;tab2&quot;&gt;
+        &lt;h2&gt;Tab 1&lt;/h2&gt;
+        &lt;!-- contents --&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;tab3&quot;&gt;
+        &lt;h2&gt;Tab 1&lt;/h2&gt;
+        &lt;!-- contents --&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;tab4&quot;&gt;
+        &lt;h2&gt;Tab 1&lt;/h2&gt;
+        &lt;!-- contents --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section id="aria-exmaple-good" class="slide">
+      <h2>ARIA Example - with ARIA</h2>
+      <pre><code>&lt;div&gt;
+    &lt;ul <span class="aria-exmaple-good">role=&quot;tablist&quot;</span>&gt;
+        &lt;li id=&quot;tab1&quot; <span class="aria-exmaple-good">aria-controls=&quot;panel1&quot;</span> <span class="aria-exmaple-good">aria-selected=&quot;true&quot;</span> <span class="aria-exmaple-good">role=&quot;tab&quot;</span> tabindex=&quot;0&quot;&gt;Tab1&lt;/li&gt;
+        &lt;li id=&quot;tab2&quot; aria-controls=&quot;panel2&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot;&gt;Tab2&lt;/li&gt;
+        &lt;li id=&quot;tab3&quot; aria-controls=&quot;panel3&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot;&gt;Tab3&lt;/li&gt;
+        &lt;li id=&quot;tab4&quot; aria-controls=&quot;panel4&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; tabindex=&quot;-1&quot;&gt;Tab4&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div id=&quot;panel1&quot; <span class="aria-exmaple-good">aria-labelledby=&quot;tab1&quot;</span> <span class="aria-exmaple-good">role=&quot;tabpanel&quot;&gt;</span>
+        &lt;!-- contents --&gt;
+    &lt;/div&gt;
+
+    &lt;div id=&quot;panel2&quot; aria-labelledby=&quot;tab2&quot; role=&quot;tabpanel&quot;&gt;
+        &lt;!-- contents --&gt;
+    &lt;/div&gt;
+
+    &lt;div id=&quot;panel3&quot; aria-labelledby=&quot;tab3&quot; role=&quot;tabpanel&quot;&gt;
+        &lt;!-- contents --&gt;
+    &lt;/div&gt;
+
+    &lt;div id=&quot;panel4&quot; aria-labelledby=&quot;tab4&quot; role=&quot;tabpanel&quot;&gt;
+        &lt;!-- contents --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>ARIA - Tabs - Screen reader example</h2>
+      <h3>Without ARIA</h3>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/t5c9LWTWLdw" frameborder="0" allowfullscreen></iframe>
+      <h3>With ARIA</h3>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/3tY24jSrdjI" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section class="slide">
       <h2>How to test your code</h2>
       <ul>
         <li class="slide">
@@ -271,6 +342,7 @@
           <ul>
             <li class="slide">Screen Readers (VO)</li>
             <li class="slide">Only a keyboard</li>
+            <li class="slide">Actual AT users (don't rely on yourself)</li>
           </ul>
         </li>
         <li class="slide">You need to do both! Automated can only catch ~40% of problems</li>
@@ -325,23 +397,65 @@
     </section>
 
     <section class="slide">
-      <h2>Landmarks</h2>
+      <h2>Use Semantics</h2>
+      <p>Avoid giving meaning to divs and spans where possible. Instead use native elements.</p>
+      <ul>
+        <li><code>&lt;header&gt;</code></li>
+        <li><code>&lt;footer&gt;</code></li>
+        <li><code>&lt;nav&gt;</code></li>
+        <li><code>&lt;main&gt;</code></li>
+      </ul>
+
+      <p>The above are considered <span>Landmarks</span>, allowing AT users to to jump to sections of a page quickly.</p>
+
+      <p>Also, please use heading elements (eg. &lt;h2&gt;) correcty (in order, don't skip).</p>
     </section>
 
     <section class="slide">
       <h2>alt text</h2>
+      <p>This alt text has problems than you might think. What you will find will surprise you!</p>
+      <ul>
+        <li class="slide">Avoid text in images. If you must, use the text as your alt text</li>
+        <li class="slide"><strong>All images</strong> need an alt attribute</li>
+        <li class="slide">Leave alt attribute empty (alt="") if the image is PURELY presentational (rare)</li>
+        <li class="slide">If the image gives meaning to the page, it needs alt text</li>
+        <li class="slide">Avoid use of placeholders - they will become permanent</li>
+        <li class="slide"><strong>Important:</strong> limit of 125 characters</li>
+      </ul>
     </section>
 
     <section class="slide">
-      <h2>Text in images (hero, header)</h2>
+      <h2>Link text - font icons</h2>
+      <h3>Bad</h3>
+      <pre><code>&lt;i class=&quot;fa fa-twitter&quot;&gt;&lt;/i&gt; @mfairchild365</code></pre>
+      <h3>Better</h3>
+      <pre><code>&lt;span class=&quot;fa fa-twitter&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Follow us on twitter: &lt;/span&gt; @mfairchild365</code></pre>
+      <pre><code>.visually-hidden {
+   position: absolute !important;
+   top: -9999px !important;
+   left: -9999px !important;
+}</code></pre>
     </section>
 
     <section class="slide">
-      <h2>Link text - fonticons</h2>
+      <h2>Wait what? Why not <code>display: none</code>?</h2>
+      <ul>
+        <li class="slide"><code>display: none</code> - hidden from <strong>everything</strong></li>
+        <li class="slide"><code>aria-hidden="true"</code> - hidden from just AT</li>
+        <li class="slide"><code>.visually-hidden</code> - hidden from just your eyes</li>
+      </ul>
     </section>
 
     <section class="slide">
       <h2>Don't misuse elements (submit button)</h2>
+      <p>Use elements for what they were designed to do. If you must change how it works or how it looks, use JS and CSS. but make sure it is still accessible. If you go rouge, so will your code. You will have to worry about: </p>
+      <ul>
+        <li class="slide">Focus management</li>
+        <li class="slide">Interaction management</li>
+        <li class="slide">Text equivalent</li>
+        <li class="slide">Browser support</li>
+        <li class="slide">Possibly more</li>
+      </ul>
     </section>
 
     <section class="slide">
