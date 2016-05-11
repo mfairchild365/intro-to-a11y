@@ -50,18 +50,23 @@
     <section class="slide">
       <h2>What is a11y</h2>
       <ul>
-        <li>a11y is short for <strong>accessibility</strong></li>
-        <li>The practice of making things usable by everyone</li>
-        <li>This talk is specifically about web a11y</li>
+        <li>a11y is short for <strong>accessibility</strong>, a(11 characters)y</li>
+        <li class="slide">The practice of making things usable by everyone</li>
+        <li class="slide">This talk is specifically about web a11y</li>
       </ul>
     </section>
 
     <section class="slide">
-      <h2>a11y has a bad name</h2>
+      <h2>a11y helps everyone</h2>
       <ul>
-        <li>a11y is often associated with ideas such as law suits, time, frustration, more money</li>
-        <li>It is really about Universal Design or Compassionate Design</li>
-        <li>a11y helps everyone!</li>
+        <li>
+          a11y is really about Universal Design, Inclusive Design, or Compassionate Design
+          <ul>
+            <li class="slide">build things so that everyone can use them from  the start. Don't wait to fix it.</li>
+          </ul>
+        </li>
+        <li class="slide">At some point in your life, a11y features will help you</li>
+        <li class="slide">a11y features can also be used to add cool features (searchable captions)</li>
       </ul>
     </section>
 
@@ -144,7 +149,7 @@
           Make sure all form inputs have labels
           <pre><code>&lt;label&gt;
   Your first name
-  &lt;input type=&quot;text&quot; name=&quot;firstname&quot; tabindex=&quot;5&quot; /&gt;
+  &lt;input type=&quot;text&quot; name=&quot;firstname&quot; /&gt;
 &lt;/label&gt;</code></pre>
         </li>
       </ul>
@@ -177,6 +182,7 @@
       
       <div class="slide">
         <p>A screen reader demo by Laura Palmaro (Google), check out the entire video "Quality, Equality, and Accessibility"</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_ey8cjuDZW8?start=483&end=511" frameborder="0" allowfullscreen></iframe>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_ey8cjuDZW8?start=483&end=511" frameborder="0" allowfullscreen></iframe>
       </div>
     </section>
@@ -260,6 +266,16 @@
             <pre><code>:focus { outline: 0; }</code></pre>
           </div>
         </li>
+      </ul>
+    </section>
+    
+    <section class="slide">
+      <h2>Cognitive impairments</h2>
+      <p>There is a huge range, and a lot of this is addressed at the content development level.</p>
+      <ul>
+        <li>Reading - between 50 and 120 characters per line (<a href="http://webaim.org/techniques/textlayout/#column_width">source</a>)</li>
+        <li>Dyslexia - choose your font carefully</li>
+        <li>Memory - try not to rely on memory for interaction</li>
       </ul>
     </section>
 
