@@ -33,6 +33,10 @@
     .on-slide-show-issues .example-code, .aria-exmaple-good {
       color: #d00;
     }
+    
+    .big-image {
+      width: 75%;
+    }
   </style>
 </head>
 <body>
@@ -250,15 +254,20 @@
 
       <ul>
         <li class="slide">Make sure that your website can be used without a mouse (keyboard only)</li>
-        <li class="slide">Skip Nav</li>
         <li class="slide">
-          Logical Tab order
-          <div class="slide">
-            Avoid this:
-            <pre><code>&lt;input name=&quot;outoforder&quot; tabindex=&quot;5&quot; /&gt;</code></pre>
-          </div>
+          Skip Nav
+          <ul>
+            <li class="slide">Boostrap example</li>
+            <li class="slide">
+              No Skip-nav
+              <img src="images/no-skipnav.gif" class="big-image" alt="Interaction with no skip nav: tabbing through each navigation element" />
+            </li>
+            <li class="slide">
+              With Skip-nav
+              <img src="images/skipnav.gif" class="big-image" alt="Interaction with skip nav: jumping directly to main-content" />
+            </li>
+          </ul>
         </li>
-        <li class="slide">Avoid keyboard traps</li>
         <li class="slide">
           Make sure current focus is visually shown
           <div class="slide">
@@ -267,6 +276,38 @@
           </div>
         </li>
       </ul>
+    </section>
+    
+    <section class="slide">
+      <h2>Mobility Pro-tips continued</h2>
+        <h3>Logical Tab order</h3>
+        <img src="images/taborder.gif" class="big-image" alt="Tabbing demo where text fields are out of order">
+        <div class="slide">
+          <img src="images/panda.gif" class="big-image" alt="a panda in an office throwing a computer off someone's desk">
+        </div>
+        <div class="slide">
+          Avoid this:
+          <pre><code>&lt;input name=&quot;outoforder&quot; tabindex=&quot;5&quot; /&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="slide">
+      <h2>Mobility Pro-tips continued</h2>
+      <h3>Avoid Keyboard Traps</h3>
+      <img src="images/keyboard-trap.gif" class="big-image" alt="A user tabs through a form and focus gets stuck on the kickets field of a form">
+      <pre><code>&lt;script&gt;
+  var keypress_num = 0;
+  $(document).ready(function(){
+    $(&apos;#number_of_tickets&apos;).keydown(function(e){
+      keypress_num++;
+      $(&apos;#keypress_num&apos;).text(keypress_num);
+      // Ensure that it is a number and stop the keypress
+      if ((e.shiftKey || (e.keyCode &lt; 48 || e.keyCode &gt; 57)) &amp;&amp; (e.keyCode &lt; 96 || e.keyCode &gt; 105)) {
+        e.preventDefault();
+      }
+    });
+  });
+&lt;/script&gt;</code></pre>
     </section>
     
     <section class="slide">
@@ -294,6 +335,7 @@
     <section class="slide">
       <h2>Standards - WCAG</h2>
       <p>Web Content Accessibility Guidelines (WCAG) 2.0 is the most widely used standard. Use it. Don't make your own.</p>
+      <p>4 main principles, each broken into guidelines and then into techniques</p>
       <h3>P-O-U-R</h3>
       <ul>
         <li class="slide"><strong>P</strong>erceivable - Information and user interface components must be presentable to users in ways they can perceive. (it can't be invisible to all of their senses)</li>
@@ -482,7 +524,7 @@
 
     <section class="slide">
       <h2>alt text</h2>
-      <p>This alt text has problems than you might think. What you will find will surprise you!</p>
+      <p>Alt text can get complicated</p>
       <ul>
         <li class="slide">Avoid text in images. If you must, use the text as your alt text</li>
         <li class="slide"><strong>All images</strong> need an alt attribute</li>
