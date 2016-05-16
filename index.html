@@ -185,14 +185,22 @@
 
       <ul>
         <li>Don't rely on color - use shapes and text</li>
-        <li>Ensure text contrast with the background is at least 4.5:1 (WCAG 2.0 AA)</li>
-        <li>Provide text alternatives for everything that is important</li>
-        <li>
+        <li class="slide">
+          Ensure text contrast with the background is at least 4.5:1 (WCAG 2.0 AA)
+          <div class="slide">
+            <img src="images/contrast-bad.png" />
+            vs
+            <img src="images/contrast-good.png"/>
+            <a href="http://leaverou.github.io/contrast-ratio/">http://leaverou.github.io/contrast-ratio/</a>
+          </div>
+        </li>
+        <li class="slide">Provide text alternatives for everything that is important</li>
+        <li class="slide">
           Make sure all form inputs have labels
           <pre><code>&lt;label&gt;
-            Your first name
-            &lt;input type=&quot;text&quot; name=&quot;firstname&quot; /&gt;
-            &lt;/label&gt;</code></pre>
+  Your first name
+  &lt;input type=&quot;text&quot; name=&quot;firstname&quot; /&gt;
+&lt;/label&gt;</code></pre>
         </li>
       </ul>
     </section>
