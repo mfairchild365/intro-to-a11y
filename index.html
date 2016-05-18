@@ -30,7 +30,7 @@
   <script src="modernizr.custom.js"></script>
   
   <style>
-    .on-slide-show-issues .example-code, .aria-exmaple-good {
+    .on-slide-show-issues .example-code, .aria-exmaple-good, .example-highlight {
       color: #d00;
     }
     
@@ -41,6 +41,16 @@
     .slide .deck-before, .slide .deck-previous {
       /** prevent contrast issues **/
       opacity: 1;
+    }
+
+    .icon-font-menu:before {
+      content: "\2630";
+    }
+
+    .sr-only {
+      position: absolute !important;
+      top: -9999px !important;
+      left: -9999px !important;
     }
   </style>
 </head>
@@ -183,6 +193,33 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_ey8cjuDZW8?start=483&end=511" frameborder="0" allowfullscreen></iframe>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_ey8cjuDZW8?start=483&end=511" frameborder="0" allowfullscreen></iframe>
       </div>
+    </section>
+
+    <section class="slide">
+      <h2>Another screen reader example - font icons</h2>
+      <p>Hamburger icon:
+        <button>
+          <span class="icon-font-menu" aria-hidden="true"></span>
+          <span class="sr-only">Open Menu</span>
+        </button>
+      </p>
+      <h3>Bad</h3>
+      <pre><code>&lt;button&gt;&lt;i class=&quot;icon-font-menu&quot;&gt;&lt;/i&gt;&lt;/button&gt;</code></pre>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/PO-QPiA8ojw?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      <h3>Better</h3>
+      <pre><code>&lt;button&gt;
+  &lt;span class=&quot;icon-font-menu&quot; <span class="example-highlight">aria-hidden="true"</span>&gt;&lt;/span&gt;
+  <span class="example-highlight">&lt;span class=&quot;sr-only&quot;&gt;Open Menu&lt;/span&gt;</span>
+&lt;/button&gt;</code></pre>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Updg6eyYejk?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+      <pre><code>.icon-font-menu:before {
+  content: "\u2630";
+}
+.sr-only {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}</code></pre>
     </section>
 
     <section class="slide">
@@ -457,9 +494,9 @@
     <section class="slide">
       <h2>ARIA - tabs - screen reader example</h2>
       <h3>Without ARIA</h3>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/t5c9LWTWLdw" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Wa9JQPeOzs0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
       <h3>With ARIA</h3>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/3tY24jSrdjI" frameborder="0" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/rn4XYulz9uo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
     </section>
 
     <section class="slide">
@@ -575,19 +612,6 @@
         <li class="slide">Avoid use of placeholders - they will become permanent</li>
         <li class="slide"><strong>Important:</strong> limit of 125 characters</li>
       </ul>
-    </section>
-
-    <section class="slide">
-      <h2>Link text - font icons</h2>
-      <h3>Bad</h3>
-      <pre><code>&lt;i class=&quot;fa fa-twitter&quot;&gt;&lt;/i&gt; @mfairchild365</code></pre>
-      <h3>Better</h3>
-      <pre><code>&lt;span class=&quot;fa fa-twitter&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;span class=&quot;visually-hidden&quot;&gt;Follow us on twitter: &lt;/span&gt; @mfairchild365</code></pre>
-      <pre><code>.visually-hidden {
-   position: absolute !important;
-   top: -9999px !important;
-   left: -9999px !important;
-}</code></pre>
     </section>
 
     <section class="slide">
