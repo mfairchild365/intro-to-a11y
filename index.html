@@ -29,7 +29,27 @@
     <!-- Required Modernizr file -->
   <script src="modernizr.custom.js"></script>
   
+  <script>
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+              results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    
+    if ('presentation' === getParameterByName('mode')) {
+      document.documentElement.className += ' mode-presentation';
+    }
+  </script>
+  
   <style>
+    .mode-presentation .source-link {
+      display: none;
+    }
+    
     .on-slide-show-issues .example-code, .aria-exmaple-good, .example-highlight {
       color: #d00;
     }
@@ -129,7 +149,7 @@
 
     <section class="slide">
       <h2>Examples of color blindness</h2>
-      <p>About 8% of all males are colorblind (<a href="http://wearecolorblind.com/article/a-quick-introduction-to-color-blindness/">source</a>)</p>
+      <p>About 8% of all males are colorblind <span class="source-link">(<a href="http://wearecolorblind.com/article/a-quick-introduction-to-color-blindness/">source</a>)</span></p>
       <div class="slide">
         <h3>Non-colorblind</h3>
         <img src="images/vision/vision%20-%20normal.png" />
@@ -161,13 +181,13 @@
 
       <div class="slide">
         <h3>Cataract</h3>
-        <p>By age 80, 60% of all Americans have Cataracts (<a href="https://nei.nih.gov/eyedata/cataract">source</a>)</p>
+        <p>By age 80, 60% of all Americans have Cataracts <span class="source-link">(<a href="https://nei.nih.gov/eyedata/cataract">source</a>)</span>span></p>
         <img src="images/vision/vision%20-%20Cataract.png" />
       </div>
 
       <div class="slide">
         <h3>Macular degeneration</h3>
-        <p>Most common: age related. 1.75 million individuals in the United States (<a href="https://nei.nih.gov/eyedata/pbd4">source</a>)</p>
+        <p>Most common: age related. 1.75 million individuals in the United States <span class="source-link">(<a href="https://nei.nih.gov/eyedata/pbd4">source</a>)</span></p>
         <img src="images/vision/vision%20-%20Macular%20degeneration.png" />
       </div>
     </section>
@@ -181,11 +201,11 @@
       
       <h3>Magnification</h3>
       <img src="images/zoom.png" alt="zoom functionality on a mac" />
-      <p><a href="http://www.zoomitapp.com/">Magnification image source</a></p>
+      <p class="source-link"><a href="http://www.zoomitapp.com/">Magnification image source</a></p>
       
       <h3>Braille devices</h3>
       <img src="images/orbit-braille.jpg" alt="A braille device" />
-      <p><a href="https://blindfoundation.org.nz/tech-innovation/first-affordable-braille-reader-launched/">braille image source</a></p>
+      <p class="source-link"><a href="https://blindfoundation.org.nz/tech-innovation/first-affordable-braille-reader-launched/">braille image source</a></p>
     </section>
 
     <section class="slide">
@@ -266,7 +286,7 @@
 
       <ul>
         <li class="slide">Ranges from partial to full</li>
-        <li class="slide">About 15% of American adults (37.5 million people) have trouble hearing (<a href="https://www.nidcd.nih.gov/health/statistics/quick-statistics-hearing">source</a>)</li>
+        <li class="slide">About 15% of American adults (37.5 million people) have trouble hearing <span class="source-link">(<a href="https://www.nidcd.nih.gov/health/statistics/quick-statistics-hearing">source</a>)</span></li>
       </ul>
     </section>
     
@@ -281,7 +301,7 @@
       <h3>Captions</h3>
       <div class="slide">
         <img src="images/captions.gif" height="500" alt="Anchorman caption - 60% of the time, it works every time." />
-        <p>Image source: The movie Anchorman - DreamWorks</p>
+        <p class="source-link">Image source: The movie Anchorman - DreamWorks</p>
       </div>
     </section>
     
@@ -308,15 +328,15 @@
       <h2>Mobility AT</h2>
       <h3>Mouth Stick</h3>
       <img src="images/mouthstick2.jpg" alt="a mouth stick" />
-      <p><a href="http://www.mundstab.de/">mouth stick source</a></p>
+      <p class="source-link"><a href="http://www.mundstab.de/">mouth stick source</a></p>
       
       <h3>Sip and Puff</h3>
       <img src="images/sip-and-puff.jpg" alt="sip and puff device" />
-      <p><a href="https://matty713.wordpress.com/2013/09/12/sip-and-puff-device-2/">sip and puff source</a></p>
+      <p class="source-link"><a href="https://matty713.wordpress.com/2013/09/12/sip-and-puff-device-2/">sip and puff source</a></p>
       
       <h3>Switch Scanning</h3>
       <img src="images/switch-scanning.gif" class="big-image" alt="switch scanning device" />
-      <p><a href="http://www.orin.com/access/switchxs/">switch scanning source</a></p>
+      <p class="source-link"><a href="http://www.orin.com/access/switchxs/">switch scanning source</a></p>
     </section>
 
     <section class="slide">
@@ -398,7 +418,7 @@
       <h2>Cognitive impairments</h2>
       <p>There is a huge range, and a lot of this is addressed at the content development level.</p>
       <ul>
-        <li>Reading - between 50 and 120 characters per line (<a href="http://webaim.org/techniques/textlayout/#column_width">source</a>)</li>
+        <li>Reading - between 50 and 120 characters per line <span class="source-link">(<a href="http://webaim.org/techniques/textlayout/#column_width">source</a>)</span></li>
         <li>Dyslexia - choose your font carefully</li>
         <li>Memory - try not to rely on memory for interaction</li>
       </ul>
@@ -414,7 +434,7 @@
         <li class="slide">However, a lot can simply be temporary (broken arm).</li>
         <li class="slide">Everyone is a keyboard user when eating at their desk</li>
       </ul>
-      <p>Image source: the movie UP - from Pixar</p>
+      <p class="source-link">Image source: the movie UP - from Pixar</p>
     </section>
 
 
@@ -429,7 +449,7 @@
         <li class="slide"><strong>U</strong>nderstandable -  the content or operation cannot be beyond their understanding</li>
         <li class="slide"><strong>R</strong>obust - as technologies and user agents evolve, the content should remain accessible</li>
       </ul>
-      <p><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html">Source</a></p>
+      <p class="source-link"><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html" class="source-link">Source</a></p>
     </section>
 
     <section class="slide">
@@ -441,7 +461,7 @@
         <li class="slide"><code>aria-live="polite"</code> - announce content changes to AT as they happen</li>
         <li class="slide"><code>role="button"</code> - Make a {span} a button and accessible to AT</li>
       </ul>
-      <p><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html">Source</a></p>
+      <p class="source-link"><a href="https://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html" class="source-link">Source</a></p>
     </section>
 
     <section class="slide">
