@@ -94,6 +94,15 @@
         <p>@mfairchild365</p>
       </div>
     </section>
+    
+    <section class="slide">
+      <img src="images/nebraska_code.jpg" alt="Michael Fairchild presenting and pointing at a projector screen">
+    </section>
+
+    <section class="slide">
+      <h2>Thanks Spencer</h2>
+      <img src="images/thanks-spencer.jpg" alt="Photoshopped version of Michael Fairchild presenting">
+    </section>
 
     <section class="slide">
       <h2>What is a11y</h2>
@@ -412,6 +421,37 @@
         Avoid
         <pre><code>&#x3C;a href=&#x22;http://google.com/&#x22; title=&#x22;google&#x22;&#x3E;google&#x3C;/a&#x3E;</code></pre>
       </div>
+    </section>
+    
+    <section class="slide">
+      <h2>Wait, how is the text of an element determined anyway?</h2>
+      <ol>
+        <li>aria-labelledby</li>
+        <li>aira-label</li>
+        <li>label (for form controls)</li>
+        <li>placeholder (for text form controls)</li>
+        <li>figcaptions (for figures)</li>
+        <li>alt (for images)</li>
+        <li>caption (for table)</li>
+        <li>legend (for fieldset)</li>
+        <li>text contents (if allowed)</li>
+        <li>title</li>
+        <li>value (form controls)</li>
+      </ol>
+      <div class="slide">
+        <pre><code>&#x3C;a href=&#x22;http://google.com/&#x22; title=&#x22;google&#x22;&#x3E;google&#x3C;/a&#x3E;</code></pre>
+      </div>
+      <div class="slide">
+        text contents (title ignored)
+      </div>
+      <div class="slide">
+        <br />
+        <pre><code>&#x3C;a href=&#x22;http://google.com/&#x22; aria-label=&#x22;google&#x22;&#x3E;google&#x3C;/a&#x3E;</code></pre>
+      </div>
+      <div class="slide">
+        aria-label (text ignored)
+      </div>
+      <p class="source-link"><a href="http://www.ssbbartgroup.com/blog/how-the-w3c-text-alternative-computation-works/">source</a></p>
     </section>
     
     <section class="slide">
